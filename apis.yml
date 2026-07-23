@@ -1,0 +1,54 @@
+aid: frost-bank
+url: https://raw.githubusercontent.com/api-evangelist/frost-bank/refs/heads/main/apis.yml
+name: Frost Bank
+kind: company
+description: >-
+  Frost Bank is the banking subsidiary of Cullen/Frost Bankers, Inc. (NYSE:
+  CFR), a San Antonio, Texas-based financial holding company and one of the
+  largest Texas-headquartered banks. Founded in 1868, Frost operates as a
+  Texas state-chartered commercial bank (regulated by the Texas Department of
+  Banking and the Federal Reserve after converting from a national charter to a
+  state charter in 2012), serving consumer, commercial, wealth-management, and
+  insurance customers through financial centers across Texas. On open finance,
+  Frost runs NO first-party public developer portal or documented public API:
+  the host developer.frostbank.com does not resolve and no developers/API page
+  exists on frostbank.com. Consumer-permissioned account and transaction data is
+  made available only through third-party aggregators — Frost's own digital
+  banking uses Plaid for account aggregation — rather than a direct API. Frost
+  publishes no FDX (Financial Data Exchange) participation and no stated CFPB
+  Section 1033 data-access posture. This is an honest identity-only record for a
+  regional US bank whose external data access is aggregator-mediated.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial Services
+- Banking
+- United States
+- Texas
+- Regional Bank
+- Commercial Banking
+- Open Finance
+- Data Aggregation
+created: '2026-07-23'
+modified: '2026-07-23'
+specificationVersion: '0.19'
+apis: []
+common:
+- type: Website
+  url: https://www.frostbank.com/
+- type: About
+  url: https://www.frostbank.com/about-us
+- type: Blog
+  url: https://www.frostbank.com/newsroom
+- type: Support
+  url: https://www.frostbank.com/support-contact
+- type: TermsOfService
+  url: https://www.frostbank.com/agreements-disclosures/terms-and-conditions-of-use
+- type: PrivacyPolicy
+  url: https://www.frostbank.com/agreements-disclosures/internet-privacy-disclosure
+- type: Security
+  url: https://www.frostbank.com/security
+- type: LinkedIn
+  url: https://www.linkedin.com/company/frostbank
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

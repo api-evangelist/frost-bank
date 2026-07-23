@@ -1,0 +1,97 @@
+aid: frost-bank
+name: Frost Bank
+review:
+  question: Does Frost Bank expose a first-party public developer API, downloadable OpenAPI, or a documented open-finance (FDX / CFPB 1033) data-access API?
+  answer: false
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Frost Bank (banking subsidiary of Cullen/Frost Bankers, Inc., NYSE: CFR)
+    publishes no first-party public developer portal and no documented public
+    API. Probing the expected surfaces returned no developer program: the host
+    developer.frostbank.com does not resolve (connection failed / no DNS), and
+    frostbank.com/developers and frostbank.com/api both return HTTP 404. The
+    host api.frostbank.com answers HTTP 403 behind a WAF but exposes no
+    documentation, reference, or specification and is not presented as a public
+    developer API. No OpenAPI or Swagger definition is publicly downloadable, so
+    nothing was harvested into openapi/.
+
+    Frost's external, consumer-permissioned data access is aggregator-mediated
+    rather than a first-party API. Frost's own consumer digital banking uses
+    Plaid for account aggregation ("Account aggregation with Plaid" on the
+    frostbank.com financial-technology page), and third-party bank-data coverage
+    directories list Frost data as reachable via aggregators (Plaid; Finicity
+    coverage listed by Fintable). Open Banking Tracker states Frost's "direct API
+    availability may be limited" and recommends integrating through an open
+    banking aggregator.
+
+    No FDX (Financial Data Exchange) membership or FDX-conformant data-access
+    endpoint is documented for Frost, and no CFPB Section 1033 (Personal
+    Financial Data Rights) data-access posture is published. Authentication model
+    for any external data sharing is therefore whatever the mediating aggregator
+    enforces (e.g., Plaid's OAuth/credential flows), not a Frost-published OAuth2,
+    API-key, or mTLS scheme. This record is honestly identity-only.
+  posture:
+    firstPartyDeveloperPortal: false
+    developerPortalURL: null
+    downloadableOpenAPI: false
+    specProvenance: none
+    fdxParticipant: false
+    section1033Posture: none-published
+    aggregatorAccess: true
+    aggregators:
+      - Plaid
+      - Finicity
+    authModel: aggregator-mediated (no Frost-published API auth scheme)
+    charterType: Texas state-chartered commercial bank (Texas Department of Banking / Federal Reserve)
+    parent: Cullen/Frost Bankers, Inc. (NYSE CFR)
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: No public REST API reference or base URL is documented by Frost Bank.
+    - protocol: FDX
+      documented: false
+      note: No FDX-conformant data-access API is published; no documented FDX membership.
+  probes:
+    - url: https://developer.frostbank.com
+      status: 000
+      note: Host does not resolve / connection failed; no developer portal.
+    - url: https://api.frostbank.com
+      status: 403
+      note: WAF-blocked host with no public documentation, reference, or spec.
+    - url: https://www.frostbank.com/developers
+      status: 404
+      note: No developers page.
+    - url: https://www.frostbank.com/api
+      status: 404
+      note: No API page.
+    - url: https://www.frostbank.com/financial-technology
+      status: 200
+      note: Consumer banking-technology marketing page; mentions "Account aggregation with Plaid", not a developer API.
+    - url: https://www.frostbank.com/
+      status: 200
+      note: Corporate website (live).
+sources:
+  - url: https://www.frostbank.com/financial-technology
+    type: Documentation
+    note: Consumer digital-banking page; account aggregation via Plaid; no developer API.
+  - url: https://www.openbankingtracker.com/provider/frostbank
+    type: Reference
+    note: States direct API availability may be limited; Plaid aggregator access; recommends aggregator integration.
+  - url: https://fintable.io/coverage/banks/United%20States/2196_frost-national-bank
+    type: Reference
+    note: Lists Frost (Frost National Bank) transaction-data coverage via Finicity aggregator.
+  - url: https://www.frostbank.com/newsroom/fact-sheet
+    type: Reference
+    note: Frost/Cullo-Frost corporate fact sheet (Texas-based bank, San Antonio HQ).
+actions:
+  apisYmlUpdated: true
+  openapiHarvested: false
+  reason: |
+    No first-party public API surface, no downloadable spec, and no documented
+    FDX/1033 data-access API exist for Frost Bank. The honest result is an
+    identity-only company record with an aggregator-mediated (Plaid/Finicity)
+    data-access posture and empty apis[]. Nothing was fabricated and no spec was
+    harvested.
