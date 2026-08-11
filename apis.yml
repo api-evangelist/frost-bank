@@ -18,6 +18,17 @@ description: >-
   publishes no FDX (Financial Data Exchange) participation and no stated CFPB
   Section 1033 data-access posture. This is an honest identity-only record for a
   regional US bank whose external data access is aggregator-mediated.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-11'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Financial Services
